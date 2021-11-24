@@ -33,12 +33,15 @@
         const row = document.createElement('tr');
         const columnName = document.createElement('th');
         const columnUsername = document.createElement('th');
-    
+        const columnBotao = document.createElement('th');
+        
+
         columnName.innerText = 'Nome';
         columnUsername.innerText = 'Username'
-    
+        columnBotao.innerText = 'Botão'
         row.appendChild(columnName);
         row.appendChild(columnUsername);
+        row.appendChild(columnBotao)
         table.appendChild(row);
     
         listUser.forEach(function (element) {
@@ -57,13 +60,20 @@
         const row = document.createElement('tr');
         const columnName = document.createElement('td');
         const columnUsername = document.createElement('td');
-    
+        const columnBotao = document.createElement('td')
+        
+        let botao = document.createElement('button')
+        botao.innerText = 'Ver dados'
         columnName.innerText = name;
         columnUsername.innerText = userName;
-    
+        columnBotao.appendChild(botao)
+
         row.appendChild(columnName);
         row.appendChild(columnUsername);
+        row.appendChild(columnBotao);
         return row;
     }
     showPersonTable();
+
+    
     

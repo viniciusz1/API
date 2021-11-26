@@ -21,7 +21,32 @@ const listUser = [
     { name: 'Bruna Alves Mafra', userName: 'BMafra' },
     { name: 'Otavio Matheus Neves', userName: 'otavionvs' }
 ];
+let tabelaInput = document.createElement('input')
 
+tabelaInput.id = 'tabela input'
+document.body.appendChild(tabelaInput)
+
+$(function(){
+    $("#tabela input").keyup(function(){       
+        var index = $(this).parent().index();
+        var nth = "#tabela td:nth-child("+(index+1).toString()+")";
+        var valor = $(this).val().toUpperCase();
+        $("#tabela tbody tr").show();
+        $(nth).each(function(){
+            if($(this).text().toUpperCase().indexOf(valor) < 0){
+                $(this).parent().hide();
+            }
+        });
+    });
+ 
+    $("#tabela input").blur(function(){
+        $(this).val("");
+    });
+});
+
+
+
+Pesquisa();
 
 function showPersonTable() {
     const actualTable = document.querySelector('table');
@@ -79,12 +104,133 @@ function getPersonTableRow(name, userName) {
     return row;
     
 }
-// function onclickButton() {
-//     let nomeEscolhido = userName;
-//     location.href = './user./user.html?' + nomeEscolhido;
-// }
-
 showPersonTable();
 
+let botaoCadastro = document.createElement('button');
+document.body.appendChild(botaoCadastro);
+botaoCadastro.onclick = clickButtonRegisteryPerson;
+botaoCadastro.innerText = "Cadastrar Pessoa";
 
+function clickButtonRegisteryPerson() {
+    const modal = createModal();
+    const content = getContentRegesteryPersonModal(modal.removeModal);
+
+    modal.insertHeader(content.header);
+    modal.insertMain(content.main);
+    modal.insertFooter(content.footer);
+}
+
+function createModal() {
+    let background = document.createElement('div');
+    background.id = "background-modal";
+    let modal = document.createElement('div');
+    modal.id = "modal";
+    background.appendChild(modal);
+    document.body.appendChild(background);
+
+    let header = document.createElement('div');
+    let main = document.createElement('div');
+    let footer = document.createElement('div');
+
+    header.id = 'modal-header';
+    main.id = 'modal-main';
+    footer.id = 'modal-footer';
+
+    modal.appendChild(header);
+    modal.appendChild(main);
+    modal.appendChild(footer);
+
+    function removeModal() {
+        background.remove();
+    }
+
+    function insertHeader(html) {
+        header.appendChild(html);
+    }
+
+    function insertMain(html) {
+        main.appendChild(html);
+    }
+
+    function insertFooter(html) {
+        footer.appendChild(html);
+    }
+
+    let retorno = {
+        background: background,
+        modal: modal,
+        removeModal: removeModal,
+        insertHeader: insertHeader,
+        insertMain: insertMain,
+        insertFooter: insertFooter,
+    }
+
+    return retorno;
+}
+
+function getContentRegesteryPersonModal(removeModal) {
+    const header = document.createElement('div');
+    header.id = 'person-header';
+    const title = document.createElement('h1');
+    title.innerText = 'Cadastro Pessoa';
+    header.appendChild(title);
+
+    const main = document.createElement('div');
+    main.id = 'person-main';
+
+    const inputNome = document.createElement('input');
+    inputNome.type = 'text';
+    inputNome.placeholder = 'Nome';
+    main.appendChild(inputNome);
+
+    const inputSobrenome = document.createElement('input');
+    inputSobrenome.type = 'text';
+    inputSobrenome.placeholder = 'Username';
+    main.appendChild(inputSobrenome);
+
+    
+
+    const footer = document.createElement('div');
+    footer.id = 'person-footer';
+    const buttonRegistery = document.createElement('button');
+    buttonRegistery.innerText = 'Registrar';
+    function registery() {
+        const name = inputNome.value;
+        const userName = inputSobrenome.value;
+
+        if (!name || name == '') {
+            return;
+        }
+        if (!userName || userName == '') {
+            return;
+        }
+
+        registeryPerson(name, userName);
+        removeModal();
+    }
+    buttonRegistery.onclick = registery;
+
+    const buttonCancel = document.createElement('button');
+    buttonCancel.innerText = 'Cancelar';
+    buttonCancel.onclick = removeModal;
+
+    footer.appendChild(buttonRegistery);
+    footer.appendChild(buttonCancel);
+
+    return {
+        header: header,
+        main: main,
+        footer: footer,
+    }
+}
+
+function registeryPerson(name, userName) {
+    let person = {
+        name: name,
+        userName: userName,
+    }
+
+    listUser.push(person);
+    showPersonTable();
+}
 

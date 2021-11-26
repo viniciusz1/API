@@ -43,8 +43,8 @@ function getUserReposGithub(a) {
                 dataRepositorio.forEach(function(element) {
                     let linha = document.createElement('div');
                     let link = document.createElement('a')
-                    link.href = element.url
-                    link.innerText = element.url
+                    link.href = element.clone_url
+                    link.innerText = element.clone_url
                     linha.innerText = element.name 
 
                     document.body.appendChild(linha)

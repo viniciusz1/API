@@ -1,9 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Rubik:wght@300;400;500&display=swap');
+*{
+    font-family: 'Rubik', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 th{
     border: solid 2px black;
 }
 td{
     border: solid 1px black;
+    padding: 4px;
 }
 tr{
     text-align: center;
+}
+.colunaBotao{
+}
+table{
+    border-spacing: 0px;
+}
+#botaoCadastro{
+    padding: 11px;
+    margin-top: 10px;
+}
+body{
+    
+    justify-content: center;
+    align-items: center;
+
+}
+input{
+    margin: 24px 0;
+    padding: 3px;
+
 }

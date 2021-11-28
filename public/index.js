@@ -92,6 +92,7 @@ function getPersonTableRow(name, userName) {
     const columnName = document.createElement('td');
     const columnUsername = document.createElement('td');
     const columnBotao = document.createElement('td')
+    columnBotao.className = 'colunaBotao'
     var botao = document.createElement('button')
     botao.innerText = 'Ver dados';
     columnName.innerText = name;
@@ -118,7 +119,7 @@ let botaoCadastro = document.createElement('button');
 document.body.appendChild(botaoCadastro);
 botaoCadastro.onclick = clickButtonRegisteryPerson;
 botaoCadastro.innerText = "Cadastrar Pessoa";
-
+botaoCadastro.id = 'botaoCadastro'
 function clickButtonRegisteryPerson() {
     const modal = createModal();
     const content = getContentRegesteryPersonModal(modal.removeModal);

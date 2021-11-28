@@ -18,7 +18,7 @@ getUserGithub();
 function showUserGithub(user, repositorio) {
     if (!user) return;
     let divName = document.createElement('div');
-    divName.innerText = user.name;
+    divName.innerText = 'Name: ' + user.name;
     if(user.name == null){
         divName.innerText = 'Sem nome'
     }
@@ -26,7 +26,7 @@ function showUserGithub(user, repositorio) {
     divImagem.src = user.avatar_url;
 
     let divUser = document.createElement('div');
-    divUser.innerText = user.login;
+    divUser.innerText = 'Username: ' + user.login;
 
     document.body.appendChild(divImagem);
     document.body.appendChild(divName);

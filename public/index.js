@@ -100,7 +100,7 @@ function getPersonTableRow(name, userName) {
 
     botao.addEventListener('click', function(){
         let nomeEscolhido = userName;
-    location.href = './user./user.html?' + nomeEscolhido;
+    location.href = './user.html?' + nomeEscolhido;
     })
     
 

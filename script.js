@@ -37,8 +37,8 @@ function showPersonTable() {
 
 
     columnName.innerText = 'Nome';
-    columnUsername.innerText = 'Username'
-    columnBotao.innerText = 'Botão'
+    columnUsername.innerText = 'Username';
+    columnBotao.innerText = 'Botão';
     row.appendChild(columnName);
     row.appendChild(columnUsername);
     row.appendChild(columnBotao)
@@ -62,7 +62,7 @@ function getPersonTableRow(name, userName) {
     const columnUsername = document.createElement('td');
     const columnBotao = document.createElement('td')
     var botao = document.createElement('button')
-    botao.innerText = 'Ver dados'
+    botao.innerText = 'Ver dados';
     columnName.innerText = name;
     columnUsername.innerText = userName;
     columnBotao.appendChild(botao)
@@ -79,10 +79,7 @@ function getPersonTableRow(name, userName) {
     return row;
     
 }
-// function onclickButton() {
-//     let nomeEscolhido = userName;
-//     location.href = './user./user.html?' + nomeEscolhido;
-// }
+
 
 showPersonTable();
 

@@ -1,5 +1,3 @@
-let userName = document.location.search;
-
 
 function getUserGithub(userName) {
     fetch('https://api.github.com/users/' + userName)

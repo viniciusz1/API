@@ -19,6 +19,7 @@ function showUserGithub(user, repositorio) {
     if (!user) return;
     let divName = document.createElement('div');
     divName.innerText = 'Name: ' + user.name;
+    divName.className = 'divName'
     if(user.name == null){
         divName.innerText = 'Sem nome'
     }
@@ -27,6 +28,7 @@ function showUserGithub(user, repositorio) {
 
     let divUser = document.createElement('div');
     divUser.innerText = 'Username: ' + user.login;
+    divUser.className = 'divUser'
 
     document.body.appendChild(divImagem);
     document.body.appendChild(divName);

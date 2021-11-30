@@ -44,6 +44,7 @@ function showPersonTable() {
     tabelaInput.id = 'myInput'
 
     tabelaInput.onkeyup = myFunction
+    
     function myFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");

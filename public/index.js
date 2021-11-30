@@ -54,8 +54,7 @@ function showPersonTable() {
       
       
         for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[1];
-            td2 = tr[i].getElementsByTagName("td")[0];
+            td = tr[i].getElementsByTagName("td")[0];
             
           if (td) {
             txtValue = td.textContent || td.innerText;
@@ -65,14 +64,7 @@ function showPersonTable() {
               tr[i].style.display = "none";
             }
           }
-            if (td2) {
-            txtValue2 = td2.textContent || td2.innerText;
-            if (txtValue2.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }
+          
         }
       }
 

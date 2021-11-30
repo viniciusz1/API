@@ -57,7 +57,7 @@ function showPersonTable() {
           td = tr[i].getElementsByTagName("td")[0];
           if (td) {
             txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            if (txtValue.toUpperCase().indexOf(filter.toUpperCase()) > -1) {
               tr[i].style.display = "";
             } else {
               tr[i].style.display = "none";

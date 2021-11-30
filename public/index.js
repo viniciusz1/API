@@ -57,10 +57,17 @@ function showPersonTable() {
           td = tr[i].getElementsByTagName("td")[1];
             td2 = tr[i].getElementsByTagName("td")[0];
             
-          if (td || td2) {
+          if (td) {
             txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+            if (td2) {
             txtValue2 = td2.textContent || td2.innerText;
-            if ((txtValue.toUpperCase().indexOf(filter)|| txtValue2.toUpperCase().indexOf(filter)) > -1) {
+            if (txtValue2.toUpperCase().indexOf(filter) > -1) {
               tr[i].style.display = "";
             } else {
               tr[i].style.display = "none";

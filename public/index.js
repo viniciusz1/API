@@ -46,7 +46,7 @@ function showPersonTable() {
     tabelaInput.onkeyup = myFunction
     
     function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
+        var input, filter, table, tr, td2, td, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
@@ -55,8 +55,11 @@ function showPersonTable() {
       
         for (i = 0; i < tr.length; i++) {
           td = tr[i].getElementsByTagName("td")[1];
-          if (td) {
+            td2 = tr[i].getElementsByTagName("td")[0];
+            
+          if (td || td2) {
             txtValue = td.textContent || td.innerText;
+           
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
               tr[i].style.display = "";
             } else {
